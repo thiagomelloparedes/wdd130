@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --main-color: darkblue;
   --text-light: white;
@@ -11,6 +17,14 @@
   --aside-img-width: 200px;
 }
 
+/* 👇 Fuente global Roboto */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: white;
+}
+
 nav {
   background-color: var(--main-color);
   padding: var(--nav-padding);
@@ -18,12 +32,24 @@ nav {
 
 nav a {
   color: var(--text-light);
-  display: block;
+  display: inline-block; /* links en fila */
   padding: var(--link-padding);
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 h1 {
   color: var(--main-color);
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+h2 {
+  font-weight: 500;
+  margin: 0.5rem 0 1rem 0;
 }
 
 img {
@@ -34,36 +60,72 @@ img {
   box-shadow: 0 0 30px var(--shadow-color);
 }
 
-p {
-  padding: 0;
-}
-
 main {
   max-width: 840px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.profile-img {
+  float: right;
+  margin: 0 0 1rem 1rem;
 }
 
 aside {
-  width: 20rem;
-  margin: 1rem;
-  border: 1px solid rgb(0 0 0 / 0.2); /* No se usa var aquí porque es semitransparente */
-  padding: 1rem;
+  width: 22rem;
+  margin: 2rem auto;
+  border: 1px solid rgb(0 0 0 / 0.2);
+  padding: 1.5rem;
   background-color: var(--bg-light);
   color: var(--text-dark);
   text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  /* 👇 necesario para overlay */
+  position: relative;
 }
 
 aside img {
   width: var(--aside-img-width);
   height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
 }
 
-main image {
-  width: var(--img-width);
-  height: auto;
+aside h2 {
+  position: absolute;
+  top: 50px;  /* 👈 ajusta según la imagen */
+  left: 50%;
+  transform: translateX(-50%); /* 👈 centra horizontalmente */
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: rgba(255,255,255,0.7); /* 👈 fondo semitransparente */
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+}
+
+aside p {
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 footer {
   margin-top: 15px;
   border-top: 1px solid var(--border-color);
   text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* --------------------
+   Class Selectors
+-------------------- */
+.box {
+  margin: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  background-color: #eee;
+  color: #000;
+  border-radius: 10px;
 }
