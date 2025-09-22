@@ -15,7 +15,7 @@
 
 body {
     font-family: var(--body-font);
-    color: var(--accent1-color);
+    color: var(--accent1-color)
 }
 
 header, main, footer {
@@ -47,7 +47,6 @@ nav, p, section, article {
     height: auto;
 }
 
-/* --- HERO HEADING --- */
 h1 {
     position: absolute;
     top: 20px;
@@ -59,25 +58,24 @@ h1 {
     color: #fff;
 }
 
-/* --- HERO ARTICLE --- */
+/* ✅ Cambiado: ahora el article se superpone sobre la imagen hero */
 .hero article {
     position: absolute; 
-    bottom: 20px;         
+    bottom: 20px;         /* lo coloca en la parte baja de la imagen */
     left: 20px;
     right: 20px;
     background-color: rgba(38, 70, 83, 0.8); 
     color: #fff;
     padding: 16px;
     border-radius: 6px;
-    display: flex;               /* ✅ usamos flex para alinear */
-    align-items: center;         /* centra verticalmente el texto respecto a la imagen */
-    gap: 15px;                   /* espacio entre texto e imagen */
+    overflow: auto; 
 }
 
 .hero article img {
+    float: right;
     width: 125px;
+    margin-left: 15px; 
     border-radius: 6px;
-    flex-shrink: 0;              /* evita que la imagen se deforme */
 }
 
 h2 {
