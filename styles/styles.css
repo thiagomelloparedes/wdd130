@@ -1,131 +1,130 @@
+/* Reset general */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --main-color: darkblue;
-  --text-light: white;
-  --text-dark: #333;
-  --bg-light: #eee;
-  --border-color: #000;
-  --shadow-color: gray;
-  --nav-padding: 10px;
-  --link-padding: 20px;
-  --img-width: 150px;
-  --aside-img-width: 200px;
-}
-
-/* 👇 Fuente global Roboto */
+/* Fuente principal */
 body {
   font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  color: var(--text-dark);
-  background-color: white;
 }
 
+/* Contenedor general */
+header,
+.grid,
+footer {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+/* Navegación */
 nav {
-  background-color: var(--main-color);
-  padding: var(--nav-padding);
+  background-color: steelblue;
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
 }
 
 nav a {
-  color: var(--text-light);
-  display: inline-block; /* links en fila */
-  padding: var(--link-padding);
+  color: white;
+  display: block;
+  padding: 20px;
   text-decoration: none;
+  font-size: larger;
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* Contenido principal */
+.grid {
+  margin: 0.5rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+main::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 h1 {
-  color: var(--main-color);
-  font-weight: 700;
-  margin: 1rem 0;
+  color: steelblue;
+  border-bottom: 1px solid #222;
+  font-size: 2rem;
 }
 
-h2 {
-  font-weight: 500;
-  margin: 0.5rem 0 1rem 0;
-}
-
-img {
-  width: var(--img-width);
+main img.profile-img {
+  width: 200px;
   height: auto;
-  border: 1px solid var(--border-color);
-  padding: 2px;
-  box-shadow: 0 0 30px var(--shadow-color);
-}
-
-main {
-  max-width: 840px;
-  margin: auto;
-  padding: 1rem;
-}
-
-.profile-img {
+  border: 1px solid black;
+  padding: 1px;
+  box-shadow: 0 0 30px gray;
   float: right;
-  margin: 0 0 1rem 1rem;
+  margin: 0.5rem;
 }
 
+main ul.box li {
+  margin-left: 1rem;
+}
+
+p {
+  padding: 0;
+}
+
+/* Aside */
 aside {
-  width: 22rem;
-  margin: 2rem auto;
-  border: 1px solid rgb(0 0 0 / 0.2);
-  padding: 1.5rem;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
-  /* 👇 necesario para overlay */
   position: relative;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
-aside img {
-  width: var(--aside-img-width);
+/* Imagen con texto centrado */
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  width: 100%;
   height: auto;
-  border-radius: 8px;
-  margin: 1rem 0;
+  display: block;
 }
 
-aside h2 {
+.image-container h2 {
   position: absolute;
-  top: 50px;  /* 👈 ajusta según la imagen */
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%); /* 👈 centra horizontalmente */
+  transform: translate(-50%, -50%);
+  color: white;
   font-size: 1.5rem;
   font-weight: bold;
-  background: rgba(255,255,255,0.7); /* 👈 fondo semitransparente */
-  padding: 0.2rem 0.5rem;
-  border-radius: 5px;
+  text-shadow: 1px 1px 5px black;
+  margin: 0;
 }
 
-aside p {
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-footer {
-  margin-top: 15px;
-  border-top: 1px solid var(--border-color);
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-/* --------------------
-   Class Selectors
--------------------- */
+/* Tarjetas destacadas */
 .box {
   margin: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(0 0 0 / 20%);
   padding: 1rem;
-  background-color: #eee;
-  color: #000;
-  border-radius: 10px;
+  background-color: steelblue;
+  color: white;
+}
+
+.box a {
+  color: white;
+}
+
+/* Pie de página */
+footer {
+  margin-top: 15px;
+  border-top: 1px solid #000;
+  text-align: center;
 }
