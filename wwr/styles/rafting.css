@@ -4,7 +4,6 @@
      contenedores (aplican a toda la página)
 ========================================================= */
 :root { 
-  /* Paleta y tipografías */
   --primary-color: #055a05;
   --secondary-color: #f4a261;
   --accent1-color: #264653;
@@ -13,86 +12,70 @@
   --body-font: "Arial", "Helvetica", sans-serif;
 }
 
-/* Reset básico */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Tipografía global y color de texto por defecto */
 body {
   font-family: var(--body-font);
   color: var(--accent1-color);
 }
 
-/* Contenedores principales centrados y con ancho fijo */
 header, main, footer {
   width: 840px;
   margin: 0 auto;
 }
 
-/* Tipografía de encabezados (h1 / h2) */
 h1, h2 {
   font-family: var(--heading-font);
   color: var(--primary-color);
 }
 
-/* Separación base para elementos de contenido */
 nav, p, section, article {
   margin: 16px;
   padding: 8px;
 }
 
-/* Enlaces sociales del footer sin subrayado */
 .socialmedia a { text-decoration: none; }
-
 
 /* =========================================================
    1) HEADER
-   - Layout horizontal: logo | navegación (GRID en header)
-   - Menú horizontal (FLEX en .navigation)
 ========================================================= */
-
-/* Header como grid: columna auto (logo) + 1fr (nav) */
 header {
   display: grid;
-  grid-template-columns: auto 1fr;  /* logo | nav */
-  align-items: center;              /* centra verticalmente ambas columnas */
-  column-gap: 24px;                 /* espacio entre logo y nav */
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 24px;
+  margin-bottom: 32px;
 }
 
-/* Lista de navegación como fila con FLEX */
 .navigation {
-  display: flex;        /* coloca los <li> en una fila horizontal */
-  gap: 12px;            /* espacio entre ítems */
-  list-style: none;     /* sin bullets */
+  display: flex;
+  gap: 12px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .navigation a {
   text-decoration: none;
-  padding: 8px 16px;    /* área clicable cómoda */
-  color: inherit;       /* usa el color de texto heredado */
+  padding: 8px 16px;
+  color: inherit;
 }
-
 
 /* =========================================================
    2) MAIN → HERO
-   - Imagen a ancho completo con título superpuesto
-   - Artículo superpuesto con texto e imagen flotada
 ========================================================= */
-
 .hero { 
-    position: relative;
-    min-height: 420px;
-}      /* referencia para posicionamiento absoluto */
+  position: relative;
+  min-height: 420px;
+}
 
 .hero img {
   display: block;
-  width: 100%;                     /* imagen ocupa el ancho del .hero */
-  height: auto;                    /* mantiene proporciones */
+  width: 100%;
+  height: auto;
 }
 
-/* Título grande superpuesto sobre la imagen del hero */
-h1 {
+.hero h1 {
   position: absolute;
   top: 0;
   left: 0;
@@ -104,14 +87,12 @@ h1 {
   color: #fff;
 }
 
-/* Tarjeta de texto superpuesta al pie del hero */
 .hero article {
   position: absolute;
-  top: 50%;                          /* centra verticalmente respecto al hero */
-  left: 50%;                         /* centra horizontalmente */
-  transform: translate(-50%, -35%);  /* levanta ~un tercio por encima del centro
-                                         (ajusta a -30%/-40% a tu gusto) */
-  width: min(720px, calc(100% - 64px)); /* ancho tipo “card” como el sample */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  width: min(720px, calc(100% - 64px));
   background-color: rgba(38, 70, 83, 0.8);
   color: #fff;
   padding: 16px;
@@ -119,7 +100,6 @@ h1 {
   overflow: auto;
 }
 
-/* Mini imagen dentro del artículo, flotada a la derecha */
 .hero article img {
   float: right;
   width: 125px;
@@ -127,13 +107,9 @@ h1 {
   border-radius: 6px;
 }
 
-
 /* =========================================================
    3) MAIN → SECTIONS (History / Adventure)
-   - Estilo general de h2 como “barra” y layouts especiales
 ========================================================= */
-
-/* Barra de color para todos los h2 de las secciones */
 h2 {
   background-color: var(--accent1-color);
   color: #fff;
@@ -141,26 +117,21 @@ h2 {
   padding: 12px;
 }
 
-/* --- History ------------------------------------------------- */
-/* Espacio entre el título "History" y su contenido (evita que toque la imagen) */
 .history h2 { margin-bottom: 16px; }
 
-/* Grid de 3 columnas: texto | imagen | texto (layout wireframe) */
 .history .history-grid {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;  /* 1fr: texto, auto: imagen, 1fr: texto */
-  gap: 24px;                             /* separación entre columnas */
-  align-items: center;                    /* alinea verticalmente la imagen */
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: center;
 }
 
-/* Párrafos compactos dentro del grid (anula márgenes globales) */
 .history .history-grid p {
   margin: 0;
   padding: 0;
   line-height: 1.55;
 }
 
-/* Imagen central: tamaño controlado y centrada en su celda */
 .history .history-grid img {
   display: block;
   max-width: 240px;
@@ -170,32 +141,27 @@ h2 {
   margin: 0 auto;
 }
 
-/* Responsive: apilar el grid de History en pantallas pequeñas */
 @media (max-width: 700px) {
   .history .history-grid {
-    grid-template-columns: 1fr;    /* una sola columna: texto, imagen, texto */
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 }
 
-/* --- Adventures ------------------------------------------------- */
-/* Espacio bajo el título para que no toque las imágenes */
 .adventures h2 {
   margin-bottom: 16px;
 }
 
-/* Grid de cinco columnas (horizontal como el wireframe) */
 .adventures .adventures-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales en desktop */
-  gap: 24px;                              /* separación entre figuras */
-  padding: 12px 8px;                      /* “acolchado” interior suave */
-  background: #f6f6f6;                    /* fondo claro como en el mockup */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  padding: 12px 8px;
+  background: #f6f6f6;
   border: 1px solid #ddd;
   border-radius: 6px;
 }
 
-/* Reset visual de figure y estilo del caption */
 .adventures figure {
   margin: 0;
   text-align: center;
@@ -203,9 +169,9 @@ h2 {
 
 .adventures figure img {
   display: block;
-  width: 100%;             /* ocupa toda su columna */
+  width: 100%;
   height: auto;
-  background: #eaeaea;     /* gris de respaldo si no carga la imagen */
+  background: #eaeaea;
   border-radius: 6px;
 }
 
@@ -215,7 +181,39 @@ h2 {
   color: var(--accent1-color);
 }
 
-/* Responsive: reduce columnas en pantallas pequeñas */
+.employees h2 {
+  margin-bottom: 16px;
+}
+
+.employees .employees-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 12px 8px;
+  background: #f6f6f6;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.employees figure {
+  margin: 0;
+  text-align: center;
+}
+
+.employees figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #eaeaea;
+  border-radius: 6px;
+}
+
+.employees figcaption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--accent1-color);
+}
+
 @media (max-width: 900px) {
   .adventures .adventures-grid { grid-template-columns: repeat(3, 1fr); }
 }
@@ -226,41 +224,156 @@ h2 {
   .adventures .adventures-grid { grid-template-columns: 1fr; }
 }
 
-
 /* =========================================================
    4) FOOTER
-   - Pie de página con barra de color y texto centrado
 ========================================================= */
-/* Footer: colocar los iconos a la derecha en una fila */
 footer { 
-  position: relative;                 /* crea contexto para posicionar los iconos */
+  position: relative;
 }
 
-/* Anula el margin/padding global que dabas a <nav> */
 footer .socialmedia {
   margin: 0;
   padding: 0;
-
-  position: absolute;                 /* sácalos del flujo para no mover el texto */
-  right: 16px;                        /* pegados al lado derecho */
-  top: 50%;                           /* centrados verticalmente */
+  position: absolute;
+  right: 16px;
+  top: 50%;
   transform: translateY(-50%);
-
-  display: flex;                      /* fila horizontal */
-  gap: 12px;                          /* separación entre iconos */
-  align-items: center;                /* alineación vertical de las imágenes */
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
-/* Haz clicable todo el cuadro del icono */
 footer .socialmedia a {
   display: inline-flex;
 }
 
-/* Tamaño uniforme para los iconos (si quieres forzar) */
 footer .socialmedia img {
   display: block;
-  width: 30px;                        /* o el tamaño que uses */
+  width: 30px;
   height: 30px;
   object-fit: contain;
 }
+
+/* =========================================================
+   5) CONTACT PAGE STYLES
+========================================================= */
+.company-info {
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.company-info h1 {
+  background-color: var(--accent1-color);
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  font-family: var(--heading-font);
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+  width: 90%;
+  max-width: 800px;
+  margin: 24px auto 8px auto;
+}
+
+.company-info p {
+  font-size: 1rem;
+  color: var(--accent1-color);
+  line-height: 1.6;
+}
+
+.company-info a {
+  color: var(--accent1-color);
+  text-decoration: none;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+  margin: 32px 0;
+  padding: 0 16px;
+}
+
+.contact-map iframe {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.contact-map,
+.contact-map iframe,
+.contact-grid form {
+  height: 100%;
+}
+
+form legend {
+  display: none;
+}
+
+form fieldset {
+  border: 1px solid #ccc;
+  padding: 24px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.form-item {
+  margin-bottom: 16px;
+}
+
+.form-item label,
+.form-item span {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 8px;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--accent1-color);
+}
+
+@media (max-width: 700px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+
 
