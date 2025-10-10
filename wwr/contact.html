@@ -3,18 +3,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Contact Mythic Rapids for questions, reservations, or suggestions. Reach out by phone, email, or our online form.">
-    <meta name="author" content="Thiago Mello Paredes" />
+    <meta name="author" content="Thiago Mello Paredes">
     <title>Contact Mythic Rapids</title>
-    <link rel="stylesheet" href="styles/rafting.css" />
+    <link rel="stylesheet" href="styles/rafting.css">
 </head>
 
 <body>
-
     <header>
-        <img src="images/rafting-company.jpg" alt="Rafting Company Logo" width="200" />
+        <img src="images/rafting-company.jpg" alt="Rafting Company Logo" width="200">
         <nav>
             <ul class="navigation">
                 <li><a href="index.html">Home</a></li>
@@ -25,8 +24,6 @@
         </nav>
     </header>
 
-    <!-- 🔧 NUEVA SECCIÓN: se movió el título principal fuera del formulario -->
-    <!-- Ahora el título se muestra justo debajo del menú, como en el wireframe -->
     <section class="company-info">
         <h1>Contact Mythic Rapids</h1>
         <p>
@@ -37,7 +34,6 @@
     </section>
 
     <main>
-        <!-- 🔧 Estructura principal: mapa a la izquierda, formulario a la derecha -->
         <section class="contact-grid">
             <div class="contact-map">
                 <iframe
@@ -46,24 +42,29 @@
 
             <form>
                 <fieldset>
-                    <!-- 🔧 LEGEND ELIMINADO: ya tenemos un título principal fuera -->
-                    <!-- <legend>Contact Mythic Rapids</legend> -->
-
                     <div class="form-item">
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name">
+                        <input type="text" id="name" name="name" required>
                     </div>
 
                     <div class="form-item">
                         <label for="useremail">Email:</label>
-                        <input type="email" id="useremail" name="useremail">
+                        <input type="email" id="useremail" name="useremail" required>
                     </div>
 
                     <div class="form-item">
                         <span>Message Purpose</span>
-                        <label><input type="radio" name="purpose" value="general"> General Inquiry</label><br>
-                        <label><input type="radio" name="purpose" value="reservation"> Reservation Question</label><br>
-                        <label><input type="radio" name="purpose" value="suggestion"> Website Suggestion</label>
+                        <label for="purpose-general">
+                            <input type="radio" id="purpose-general" name="purpose" value="general"> General Inquiry
+                        </label><br>
+                        <label for="purpose-reservation">
+                            <input type="radio" id="purpose-reservation" name="purpose" value="reservation"> Reservation
+                            Question
+                        </label><br>
+                        <label for="purpose-suggestion">
+                            <input type="radio" id="purpose-suggestion" name="purpose" value="suggestion"> Website
+                            Suggestion
+                        </label>
                     </div>
 
                     <div class="form-item">
@@ -71,11 +72,9 @@
                         <textarea id="feedback" name="feedback" rows="4" placeholder="Type here"></textarea>
                     </div>
 
-                    <div class="form-item">
-                        <label>
-                            <input type="checkbox" id="subscribe" name="subscribe">
-                            Please Subscribe me to the monthly newsletter
-                        </label>
+                    <div class="form-item checkbox-item">
+                        <input type="checkbox" id="subscribe" name="subscribe">
+                        <label for="subscribe">Please Subscribe me to the monthly newsletter</label>
                     </div>
 
                     <button type="submit">Get in Touch!</button>
@@ -85,7 +84,6 @@
 
         <section class="employees">
             <h2>We Are Here to Serve You</h2>
-
             <div class="employees-grid">
                 <figure>
                     <img src="images/employee1.jpg" alt="A happy employee">
@@ -109,17 +107,16 @@
         <p>&copy; 2025 Mythic Rapids. All rights reserved.</p>
         <nav class="socialmedia">
             <a href="https://facebook.com" target="_blank">
-                <img src="images/facebook.svg" alt="Facebook Icon" width="30" />
+                <img src="images/facebook.svg" alt="Facebook Icon" width="30">
             </a>
             <a href="https://linkedin.com" target="_blank">
-                <img src="images/linkedin-bw.svg" alt="LinkedIn Icon" width="30" />
+                <img src="images/linkedin-bw.svg" alt="LinkedIn Icon" width="30">
             </a>
             <a href="https://instagram.com" target="_blank">
-                <img src="images/instagram.svg" alt="Instagram Icon" width="30" />
+                <img src="images/instagram.svg" alt="Instagram Icon" width="30">
             </a>
         </nav>
     </footer>
-
 </body>
 
 </html>
